@@ -1,0 +1,125 @@
+﻿/*variable color*/
+body {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  padding-top: 50px;
+}
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.nav-panel {
+  background: #fbfbfb;
+  padding: 0 !important;
+  border-right: 1px solid #e5e5e5;
+  min-height: 650px;
+}
+.nav-panel .header {
+  background: #734636;
+  padding: 10px 2px;
+  color: white;
+}
+.nav-panel .main-menu {
+  padding: 0;
+  overflow: hidden;
+}
+.nav-panel .main-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-panel .main-menu ul li a {
+  display: block;
+  padding: 15px 10px;
+  line-height: 1.6rem;
+  text-decoration: none;
+  color: #734636;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+}
+.nav-panel .main-menu ul li a:hover {
+  background: #5fa2db;
+  color: white;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+}
+.nav-panel .main-menu ul li > ul {
+  margin-left: 35px;
+}
+.nav-panel .main-menu ul.first-batch::after {
+  content: "";
+  display: block;
+  margin: 15px 0;
+  border-bottom: solid 1px #e5e5e5;
+}
+.nav-treeview {
+  user-select: none;
+  -moz-user-select: none;
+}
+.nav-treeview ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.nav-treeview input {
+  position: absolute;
+  opacity: 0;
+}
+.nav-treeview a {
+  color: #35d;
+  text-decoration: none;
+}
+.nav-treeview a:hover {
+  text-decoration: underline;
+}
+.nav-treeview input + label + ul {
+  margin: 0 0 0 20px;
+}
+.nav-treeview input ~ ul {
+  display: none;
+}
+.nav-treeview label {
+  cursor: pointer;
+  background-position: 20px 0;
+  padding-left: 1.8rem;
+  display: inline-block;
+  height: 16px;
+  line-height: 10px;
+  vertical-align: middle;
+  background: url("imgs/folder.png") no-repeat;
+}
+.nav-treeview label::before {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.nav-treeview input:disabled + label {
+  cursor: default;
+  opacity: .6;
+}
+.nav-treeview input:checked:not(:disabled) ~ ul {
+  display: block;
+}
+.flex-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 800px;
+}
+.nb-form-panel {
+  text-align: center;
+  background: white;
+  padding: .5rem;
+}
+.nb-form-panel img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+/*# sourceMappingURL=default.css.map */

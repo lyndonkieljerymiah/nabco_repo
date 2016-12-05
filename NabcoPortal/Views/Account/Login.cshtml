@@ -1,0 +1,36 @@
+﻿@using NabcoPortal.Models
+
+@model NabcoPortal.ViewModel.Identity.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<div class="flex-wrapper">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <p class="login-text">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-lock fa-stack-1x"></i>
+            </span>
+        </p>
+        <div>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "login-username", placeholder = "User Name" })
+            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "login-validation text-danger" })
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Password, new { @class = "login-password", placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "login-validation text-danger" })
+        </div>
+        <button class="login-submit">Log-in</button>
+        <div class="underlay-photo"></div>
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

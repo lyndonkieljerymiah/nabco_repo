@@ -1,0 +1,46 @@
+﻿/*variable color*/
+.nav-panel {
+  background: #fbfbfb;
+  padding: 0 !important;
+  border-right: 1px solid #e5e5e5;
+  min-height: 650px;
+}
+.nav-panel .header {
+  background: #734636;
+  padding: 10px 2px;
+  color: white;
+}
+.nav-panel .main-menu {
+  padding: 0;
+  overflow: hidden;
+}
+.nav-panel .main-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-panel .main-menu ul li a {
+  display: block;
+  padding: 15px 10px;
+  line-height: 1.6rem;
+  text-decoration: none;
+  color: #734636;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+}
+.nav-panel .main-menu ul li a:hover {
+  background: #5fa2db;
+  color: white;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+}
+.nav-panel .main-menu ul li > ul {
+  margin-left: 35px;
+}
+.nav-panel .main-menu ul.first-batch::after {
+  content: "";
+  display: block;
+  margin: 15px 0;
+  border-bottom: solid 1px #e5e5e5;
+}
+/*# sourceMappingURL=panel.css.map */

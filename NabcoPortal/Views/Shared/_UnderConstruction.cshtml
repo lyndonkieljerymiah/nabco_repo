@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    
+}
+
+@if (Request.IsAuthenticated)
+{
+    <div class="flex-wrapper">
+        <div class="nb-form-panel">
+            <img class="img-center" src="@Url.Content("~/Content/imgs/under_construction.jpg")" />
+            <h1>The site is under Construction</h1>
+            <div class="underlay-photo"></div>
+        </div>
+    </div>
+}
+

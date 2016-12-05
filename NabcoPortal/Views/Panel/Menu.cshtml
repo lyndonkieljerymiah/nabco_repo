@@ -1,0 +1,24 @@
+﻿@model IEnumerable<NabcoPortal.Models.MenuHeader>
+@{
+    Layout = null;
+}
+<div class="col-md-2 nav-panel">
+    <header class="header">
+        <p><i class="fa fa-home fa-1x"></i> Menu</p>
+    </header>
+    <nav class="main-menu">
+        <ul class="first-batch">
+            <li><a href="@Url.Action("UnderConstruction","Panel")"><i class="fa fa-shopping-basket"></i> Purchase Order</a></li>
+            <li><a href="@Url.Action("UnderConstruction","Panel")"><i class="fa fa-cube"></i> Manufacturing</a></li>
+            <li><a href="@Url.Action("UnderConstruction","Panel")"><i class="fa fa-truck"></i> Shipping</a></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-gears"></i> Master
+                </a>
+                <ul>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

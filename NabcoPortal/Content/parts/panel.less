@@ -1,0 +1,58 @@
+﻿@import url("mixin.less");
+
+.nav-panel {
+    background: #fbfbfb;
+    padding: 0 !important;
+    border-right: 1px solid #e5e5e5;
+    min-height: 650px;
+
+    .header {
+        background: @dark-mocha-color;
+        padding: 10px 2px;
+        color: white;
+    }
+
+    .main-menu {
+        padding: 0;
+        overflow: hidden;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                a {
+                    display: block;
+                    padding: 15px 10px;
+                    line-height: 1.6rem;
+                    text-decoration: none;
+                    color: @dark-mocha-color;
+                    .background-transition();
+
+                    &:hover {
+                        background: #5fa2db;
+                        color: white;
+                        .background-transition();
+                    }
+                }
+                > ul {
+                    margin-left: 35px;
+
+                    li {
+
+                    }
+                }
+            }
+        }
+
+        ul.first-batch {
+            &::after {
+                content: "";
+                display: block;
+                margin: 15px 0;
+                border-bottom: solid 1px #e5e5e5;
+            }
+        }
+    }
+}
