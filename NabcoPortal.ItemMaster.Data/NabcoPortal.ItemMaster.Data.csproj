@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ItemContextDb.cs" />
+    <Compile Include="Migrations\201612051437145_Initial.cs" />
+    <Compile Include="Migrations\201612051437145_Initial.Designer.cs">
+      <DependentUpon>201612051437145_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +63,11 @@
       <Project>{1356a593-7b89-43c7-9e0c-46065197b82a}</Project>
       <Name>NabcoPortal.ItemMaster.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612051437145_Initial.resx">
+      <DependentUpon>201612051437145_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
