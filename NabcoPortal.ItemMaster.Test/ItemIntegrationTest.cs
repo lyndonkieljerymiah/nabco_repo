@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,11 +27,32 @@ namespace NabcoPortal.ItemMaster.Test
         [TestMethod]
         public async Task Can_Add_Item()
         {
+
+            var oldData = await _itemData.GetItems();
+
             var item = Item.Create("100", "Item 1", "Item description 1");
             await _itemData.AddItem(item);
-            var items = await _itemData.GetItems();
+            var newData = await _itemData.GetItems();
 
-            Assert.AreEqual(1,items.Count());
+            Assert.AreEqual((oldData.Count()+1),newData.Count());
         }
+
+        [TestMethod]
+        public async Task Can_Get_All_Items()
+        {
+            var data = await _itemData.GetItems();
+            Assert.AreNotEqual(0,data.Count());
+        }
+
+        [TestMethod]
+        public async Task Can_Get_Item_By_Id()
+        {
+            var newItem = Item.Create("100", "Item 1", "Item description 1");
+            var item = await _itemData.GetItem(1); //get the first item
+            Assert.AreEqual(newItem.Code,item.Code);
+
+        }
+
+
     }
 }

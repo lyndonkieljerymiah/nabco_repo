@@ -331,6 +331,16 @@
       <DependentUpon>201612040905124_AddUserFullName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NabcoPortal.ItemMaster.Data\NabcoPortal.ItemMaster.Data.csproj">
+      <Project>{3401382b-7d60-47d7-913b-472a05e27010}</Project>
+      <Name>NabcoPortal.ItemMaster.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NabcoPortal.ItemMaster.Domain\NabcoPortal.ItemMaster.Domain.csproj">
+      <Project>{1356a593-7b89-43c7-9e0c-46065197b82a}</Project>
+      <Name>NabcoPortal.ItemMaster.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
