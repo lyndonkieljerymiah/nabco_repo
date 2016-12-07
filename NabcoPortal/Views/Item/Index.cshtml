@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NabcoPortal.ItemMaster.Domain.Model.Item>
+
+<div>
+
+    <div class="page-header">
+        <h1>Items Master File</h1>
+        <button id="btnAddItem" class="btn btn-default" data-toggle="modal" data-target="#frmItemEntry">Add Item</button>
+    </div>
+
+    <div class="panel">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Code</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <a href="@Url.Action("Edit", new {Id = @item.Id})"><i class="fa fa-pencil"></i></a>
+                            <a href="@Url.Action("Remove", new {Id = @item.Id})"><i class="fa fa-eraser"></i></a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    @Html.Partial("ItemEntry")
+    
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/item_controller.js")"></script>
+    <script type="text/javascript">
+        $(document)
+           .ready(function () {
+                $('#frmItemEntry')
+                    .on('shown.bs.modal',
+                        function ()
+                        {
+                            $.get("http://localhost:50305/api/item",
+                                function(data) {
+                                    $("#modalBody").html(data.DateCreated);
+                                });
+                        });
+
+            });
+    </script>
+}

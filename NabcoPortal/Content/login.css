@@ -2,6 +2,8 @@
 body,
 html {
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 body {
   font-family: 'Open Sans';
@@ -115,7 +117,8 @@ input :focus :-ms-input-placeholder {
   z-index: -2;
 }
 .underlay-dark {
-  background: rgba(0, 0, 0, 0.7);
+  background: url("imgs/pattern-bg.png");
+  background-size: cover;
   z-index: -1;
 }
 .nb-panel-holder {
