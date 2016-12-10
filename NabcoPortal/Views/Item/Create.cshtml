@@ -1,7 +1,7 @@
-﻿@model NabcoPortal.ViewModel.ItemViewModel
+﻿@using System.Web.Http.Routing
+@model NabcoPortal.ViewModel.ItemViewModel
 
-<form data-ajax="true" method="post">
-    
+<form id="frmItemEntry" data-ajax="true" method="post" data-action="@Model.ActionUrl">
     <div class="modal-header">
         <h3 class="modal-title" id="modal-title">Item Add</h3>
     </div>

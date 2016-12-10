@@ -39,18 +39,24 @@ namespace NabcoPortal.Controllers
 
         public PartialViewResult Create()
         {
-            return PartialView(new ItemViewModel());
+
+            var item = new ItemViewModel();
+            //add url
+            item.ActionUrl = Request.Url.Scheme + @"://" + Request.Url.Authority + "/api/item";
+            return PartialView(item);
         }
 
         public async Task<PartialViewResult> Edit(int id)
         {
             var item = await _itemData.GetItem(id);
             var mvItems = Mapper.Map<ItemViewModel>(item);
+            mvItems.ActionUrl = Request.Url.Scheme + @"://" + Request.Url.Authority + "/api/item";
+
             return PartialView("Create", mvItems);
         }
 
         //GET: Show selected item
-        public async Task<PartialViewResult> GetItem(int id)
+        public async Task<PartialViewResult> Detail(int id)
         {
             var item = await _itemData.GetItem(id);
             var mvItem = Mapper.Map<ItemViewModel>(item);

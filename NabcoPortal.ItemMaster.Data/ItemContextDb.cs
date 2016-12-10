@@ -13,6 +13,8 @@ namespace NabcoPortal.ItemMaster.Data
     {
 
         public DbSet<Item> Items { get; set; }
+        
+
 
         public ItemContextDb()
             : base("NabcoDbConnection")
@@ -23,8 +25,10 @@ namespace NabcoPortal.ItemMaster.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.HasDefaultSchema("Master");
             modelBuilder.Configurations.Add(new ItemConfiguration());
+           // modelBuilder.Configurations.Add(new CategoryConfiguration());
         }
     }
 }

@@ -305,7 +305,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.bootstrap.js" />
-    <Content Include="Scripts\app\item_controller.js" />
+    <Content Include="Scripts\app\item.controller.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\login.less" />
@@ -1147,7 +1147,7 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\ItemEntry.cshtml" />
     <Content Include="Scripts\version.json" />
-    <Content Include="Views\Item\GetItem.cshtml" />
+    <Content Include="Views\Item\Detail.cshtml" />
     <Content Include="Views\Item\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>

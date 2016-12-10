@@ -1,10 +1,10 @@
-﻿console.log(app);
-/*********************************
+﻿/*********************************
  * Item Dialog Controller
  * 
  * 
  ******************************/
-app.controller('ItemDialogController', function ($uibModal,$scope) {
+app.controller('ItemDialogController', function ($uibModal, $scope)
+{
 
     var $ctrl = this;
     var parentElem = angular.element($('.modal-demo'));
@@ -54,12 +54,14 @@ app.controller('ModalInstanceCtrl',
         var $ctrl = this;
         $ctrl.ok = function ()
         {
+            var uriUpdate = $("#frmItemEntry").data("action");
+            console.log(uriUpdate);
             //console.log($scope.item);
             //execute post here to save item
             ajaxService.postForm($scope.item,
-                "Update",
-                "Item",
-                function (data) {
+               uriUpdate,
+               function (data)
+               {
                     $uibModalInstance.dismiss({ value: 'cancel' });
                     window.location.replace("http://localhost:50305/item");
                 });

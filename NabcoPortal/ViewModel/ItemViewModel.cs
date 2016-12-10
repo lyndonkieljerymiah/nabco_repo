@@ -62,7 +62,10 @@ namespace NabcoPortal.ViewModel
 
         public bool IsActive { get; private set; }
 
+        public string ActionUrl { get; set; }
+
         public ItemStatusInfo ItemStatusInfo { get; set; }  
+
 
 
     }

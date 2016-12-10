@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ItemData.cs" />
+    <Compile Include="EntityConfiguration\CategoryConfiguration.cs" />
     <Compile Include="EntityConfiguration\ItemConfiguration.cs" />
     <Compile Include="ItemContextDb.cs" />
     <Compile Include="Migrations\201612051437145_Initial.cs" />

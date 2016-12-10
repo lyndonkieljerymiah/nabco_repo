@@ -24,7 +24,17 @@
     </div>
     <hr/>
     <div class="row">
-        
+        <div class="col-md-5">
+            <p>Order Qty: @Model.ItemStatusInfo.OrderQty</p>
+            <p>R.S Qty: @Model.ItemStatusInfo.ReadyForShippingQty</p>
+            <p>W.W Qty: @Model.ItemStatusInfo.WoodWorkingQty</p>
+            <p>Curving Qty: @Model.ItemStatusInfo.WoodWorkingQty</p>
+        </div>
+        <div class="col-md-5">
+            <p>Assemble Qty: @Model.ItemStatusInfo.AssemblyQty</p>
+            <p>Finishing Qty: @Model.ItemStatusInfo.FinishingQty</p>
+            <p>Shipped Qty: @Model.ItemStatusInfo.ShippedQty</p>
+        </div>
     </div>
 </div>
 <div class="modal-footer">
