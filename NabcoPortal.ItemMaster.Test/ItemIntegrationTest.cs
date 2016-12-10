@@ -14,27 +14,40 @@ namespace NabcoPortal.ItemMaster.Test
     public class ItemIntegrationTest
     {
         private ItemContextDb _contextDb;
+        private ReferenceContextDb _referenceContextDb;
         private IItemData _itemData;
-
 
         [TestInitialize]
         public void TestInitialize()
         {
             _contextDb = new ItemContextDb();
-            _itemData = new ItemData(_contextDb);
+            _referenceContextDb = new ReferenceContextDb();
+            _itemData = new ItemData(_contextDb,_referenceContextDb);
         }
+
 
         [TestMethod]
         public async Task Can_Add_Item()
         {
-
             var oldData = await _itemData.GetItems();
-
-            var item = Item.Create("100", "Item 1", "Item description 1");
+            var item = Item.Create("Kings Bed", "M200", "F1001", " mattress and pillow", "PC");
             await _itemData.AddItem(item);
             var newData = await _itemData.GetItems();
-
             Assert.AreEqual((oldData.Count()+1),newData.Count());
+        }
+
+        [TestMethod]
+        public async Task Can_Update_Item()
+        {
+            var id = 5;
+            var oldModelNo = "M100";
+            var itemToEdit = await _itemData.GetItem(id);
+            itemToEdit.ModelNo = "M101";
+            await _itemData.UpdateItem(itemToEdit);
+            var updatedEdit = await _itemData.GetItem(id);
+
+            Assert.AreNotEqual(oldModelNo,updatedEdit.ModelNo);
+            
         }
 
         [TestMethod]
@@ -47,10 +60,9 @@ namespace NabcoPortal.ItemMaster.Test
         [TestMethod]
         public async Task Can_Get_Item_By_Id()
         {
-            var newItem = Item.Create("100", "Item 1", "Item description 1");
-            var item = await _itemData.GetItem(1); //get the first item
-            Assert.AreEqual(newItem.Code,item.Code);
-
+            var newItem = Item.Create("Queens Bed", "M100", "F1001", " mattress and pillow", "PC");
+            var item = await _itemData.GetItem(2); //get the first item
+            Assert.AreEqual(newItem.ModelNo,item.ModelNo);
         }
 
 

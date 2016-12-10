@@ -1,0 +1,42 @@
+﻿@model NabcoPortal.ViewModel.ItemViewModel
+
+<form data-ajax="true" method="post">
+    
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Item Add</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        @Html.AntiForgeryToken()
+        <input type="hidden" ng-model="item.id" ng-init="item.id=@Model.Id" />
+        <div class="form-group">
+            <label for="modelNo">Model No</label>
+            <input name="modelNo" id="modelNo" type="text" ng-model="item.modelNo" , ng-init="item.modelNo='@Model.ModelNo'" , class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" ,name="name" type="text" ng-model="item.name" , ng-init="item.name='@Model.Name'" , class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="finishingCode">Finishing Code</label>
+            <input type="text" id="finishingCode" name="finishingCode" class="form-control"
+                   ng-model="item.finishingCode" , ng-init="item.finishingCode='@Model.FinishingCode'" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="composition">Composition</label>
+            <input type="text" id="composition" name="composition" class="form-control"
+                   ng-model="item.composition" , ng-init="item.composition='@Model.Composition'" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="uom">UOM</label>
+            <input type="text" id="uom" name="uom" class="form-control"
+                   ng-model="item.uom" , ng-init="item.uom='@Model.UOM'" class="form-control" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+
+    </div>
+</form>
+
+

@@ -23,6 +23,15 @@ namespace NabcoPortal
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ui-bootstrap").Include(
+                        "~/Scripts/angular.js",
+                        "~/Scripts/angular-animate.js",
+                        "~/Scripts/angular-sanitize.js",
+                       "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                       "~/Scripts/lib/data.manager.js",
+                       "~/Scripts/app/app.bootstrap.js",
+                       "~/Scripts/respond.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/font-awesome.css",
                       "~/Content/bootstrap.css",

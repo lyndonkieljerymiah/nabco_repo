@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IData\IItemData.cs" />
+    <Compile Include="Model\ActiveItem.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

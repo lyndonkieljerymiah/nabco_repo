@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NabcoPortal.ItemMaster.Data.EntityConfiguration;
 using NabcoPortal.ItemMaster.Domain.Model;
 
 namespace NabcoPortal.ItemMaster.Data
@@ -23,6 +24,7 @@ namespace NabcoPortal.ItemMaster.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("Master");
+            modelBuilder.Configurations.Add(new ItemConfiguration());
         }
     }
 }

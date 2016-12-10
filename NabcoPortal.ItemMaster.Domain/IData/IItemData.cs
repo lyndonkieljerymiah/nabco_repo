@@ -10,7 +10,9 @@ namespace NabcoPortal.ItemMaster.Domain.IData
     public interface IItemData
     {
         Task AddItem(Item item);
+        Task UpdateItem(Item item);
         Task<IEnumerable<Item>> GetItems();
         Task<Item> GetItem(int Id);
+
     }
 }

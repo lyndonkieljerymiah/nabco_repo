@@ -18,7 +18,7 @@
             </span>
         </p>
         <div>
-            @Html.TextBoxFor(m => m.UserName, new { @class = "login-username", placeholder = "User Name" })
+            @Html.TextBoxFor(m => m.UserName, new { @class = "login-username", placeholder = "User Name", autofocus="" })
             @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "login-validation text-danger" })
         </div>
         <div>

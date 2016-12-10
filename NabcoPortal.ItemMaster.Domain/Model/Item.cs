@@ -10,41 +10,61 @@ namespace NabcoPortal.ItemMaster.Domain.Model
     {
 
 
-        public static Item Create(string code, string name, string description)
+        public static Item Create(string name,string modelNo,string finishingCode,string composition,string uom)
         {
-            return new Item(code,name,description);
+            return new Item(name,modelNo,finishingCode,composition,uom);
         }
 
-        public Item(string code, string name, string description) : this()
+        public static Item ToUpdate(int id, string name, string modelNo, string finishingCode, string composition,
+            string uom)
         {
-            this.Code = code;
+            var item = Item.Create(name,modelNo,finishingCode,composition,uom);
+            item.Id = id;
+            return item;
+        }
+
+        public Item(string name, string modelNo, string finishingCode, string composition,string uom)
+            : this()
+        {
+            
             this.Name = name;
-            this.Description = description;
+            this.ModelNo = modelNo;
+            this.FinishingCode = finishingCode;
+            this.Composition = composition;
+            this.UOM = uom;
+
+            this.Description = this.Composition + " " + this.ModelNo + " " + this.FinishingCode;
 
         }
 
         public Item()
         {
             DateCreated = DateTime.Now;
-            IsActive = false;
+            IsActive = true;
         }
 
         public int Id { get; set; }
 
         public DateTime DateCreated { get; private set; }
 
-        public string Code { get; set; }
+        public string ModelNo { get; set; }
+
+        public string FinishingCode { get; set; }
 
         public string Name { get; set; }
 
+        public string Composition { get; set; }
+
+
         public string Description { get; set; }
 
-        public bool IsActive { get; set; }
+        public string UOM { get; set; }
 
+        public bool IsActive { get; private set; }
 
-
-
-
-
+        public void Activate()
+        {
+            this.IsActive = true;
+        }
     }
 }
