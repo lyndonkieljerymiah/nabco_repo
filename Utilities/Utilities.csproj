@@ -43,10 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extension\AutomMappingExtension.cs" />
+    <Compile Include="Extension\LimitExtension.cs" />
+    <Compile Include="Extension\PagingExtension.cs" />
+    <Compile Include="Helper\Paging\IPageList.cs" />
+    <Compile Include="Helper\Paging\PageList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helper\BasicPaging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

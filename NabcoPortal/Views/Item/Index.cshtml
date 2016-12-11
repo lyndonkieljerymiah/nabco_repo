@@ -1,6 +1,7 @@
-﻿@model IEnumerable<NabcoPortal.ViewModel.ItemViewModel>
+﻿@model NabcoPortal.ViewModel.ItemTableViewModel
 
 <div ng-controller="ItemDialogController as $ctrl" class="modal-demo">
+
     <div class="page-header">
         <h1>Items Master File</h1>
         <button id="btnAddItem" class="btn btn-default" ng-click="$ctrl.open('@Url.Action("Create")')">Add Item</button>
@@ -8,35 +9,86 @@
 
     <div class="panel">
         <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <th>Model No</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Unit of Measure</th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                    {
+            <table class="nb-table">
+                <thead>
                     <tr>
-                        <td>@item.ModelNo</td>
-                        <td>@item.Name</td>
-                        <td>@item.Description</td>
-                        <td>@item.UOM</td>
-                        <td>
-                            <button class="btn btn-muted"
-                                    ng-click="$ctrl.open('@Url.Action("Edit", new {id = @item.Id})')">
-                                <i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-muted"
-                                    ng-click="$ctrl.openDetail('@Url.Action("Detail", new {id = @item.Id})')">
-                                <i class="fa fa-eye"></i>
-                            </button>
+                        <th>Model No</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Unit of Measure</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ItemViewModels)
+                    {
+                        <tr>
+                            <td>@item.ModelNo</td>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.UOM</td>
+                            <td>
+                                <button class="btn-nav"
+                                        ng-click="$ctrl.open('@Url.Action("Edit", new {id = @item.Id})')">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn-nav"
+                                        ng-click="$ctrl.openDetail('@Url.Action("Detail", new {id = @item.Id})')">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <div class="footer-nav">
+
+                                @if (!@Model.Pagination.IsFirstPage)
+                                {
+                                    <a class="record-nav" href="@Url.Action("List", new {page = @Model.Pagination.First})"><i class="fa fa-angle-double-left"></i></a>
+
+                                }
+                                else
+                                {
+                                    <button class="record-nav"><i class="fa fa-angle-double-left"></i></button>
+                                    
+                                }
+                                
+                                @if (@Model.Pagination.HasPreviousPage)
+                                {
+                                    <a class="record-nav" href="@Url.Action("List", new {page = @Model.Pagination.Previous})"><i class="fa fa-angle-left"></i></a>
+                                }
+                                else
+                                {
+                                    <button class="record-nav"><i class="fa fa-angle-left"></i></button>
+                                }
+                                
+
+                                @if (@Model.Pagination.HasNextPage)
+                                {
+                                    <a class="record-nav" href="@Url.Action("List", new {page = @Model.Pagination.Next})"><i class="fa fa-angle-right"></i></a>
+                                }
+                                else
+                                {
+                                    <button class="record-nav"><i class="fa fa-angle-right"></i></button>
+                                }
+                                
+                                @if (!@Model.Pagination.IsLastPage)
+                                {
+                                    <a class="record-nav" href="@Url.Action("List", new {page = @Model.Pagination.Last})"><i class="fa fa-angle-double-right"></i></a>
+                                }
+                                else
+                                {
+                                    <button class="record-nav"><i class="fa fa-angle-double-right"></i></button>
+                                }
+                                
+                            </div>
                         </td>
                     </tr>
-                    }
-
+                </tfoot>
             </table>
         </div>
     </div>

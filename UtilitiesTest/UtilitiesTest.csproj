@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FCF9CE0F-A516-4A93-9AFA-48AAD3106580}</ProjectGuid>
+    <ProjectGuid>{A8846E33-9F4C-40D4-A5FF-F86E9E36DDE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NabcoPortal.ItemMaster.Test</RootNamespace>
-    <AssemblyName>NabcoPortal.ItemMaster.Test</AssemblyName>
+    <RootNamespace>UtilitiesTest</RootNamespace>
+    <AssemblyName>UtilitiesTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,14 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -58,26 +51,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ItemIntegrationTest.cs" />
-    <Compile Include="CategoryIntegrationTest.cs" />
-    <Compile Include="ItemListTest.cs" />
+    <Compile Include="PaginationUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NabcoPortal.ItemMaster.Data\NabcoPortal.ItemMaster.Data.csproj">
-      <Project>{3401382b-7d60-47d7-913b-472a05e27010}</Project>
-      <Name>NabcoPortal.ItemMaster.Data</Name>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{d04601d0-4f41-4724-82a0-2e97afba3c5c}</Project>
+      <Name>Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NabcoPortal.ItemMaster.Domain\NabcoPortal.ItemMaster.Domain.csproj">
-      <Project>{1356a593-7b89-43c7-9e0c-46065197b82a}</Project>
-      <Name>NabcoPortal.ItemMaster.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IntegrationTest\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

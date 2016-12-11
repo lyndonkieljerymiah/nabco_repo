@@ -19,37 +19,50 @@ namespace NabcoPortal.Controllers
     /// 
     /// 
     ///
+    
+    [RoutePrefix("Item")]
     [Authorize]
     public class ItemController : Controller
     {
         private readonly IItemData _itemData;
+        private readonly ICategoryData _categoryData;
+        private const int DEFAULT_SIZE = 2;
 
-        public ItemController(IItemData itemData)
+        public ItemController(IItemData itemData,ICategoryData categoryData)
         {
             _itemData = itemData;
+            _categoryData = categoryData;
         }
        
         // GET: Show Item List
-        public async Task<ActionResult> Index()
+        [Route("List/{page?}")]
+        public async Task<ActionResult> Index(int page=1)
         {
-            var items = await _itemData.GetItems();
-            var mvItems = Mapper.Map<IEnumerable<ItemViewModel>>(items);
-            return View(mvItems);
+            var items = await _itemData.GetItems(page,DEFAULT_SIZE);
+            ItemTableViewModel vm = new ItemTableViewModel
+            {
+                ItemViewModels = ItemViewModel.CreateRange(items),
+                CurrentPage = page,
+                PageSize = DEFAULT_SIZE,
+                TotalCount = _itemData.GetTotalRecordCount()
+            };
+            
+            return View(vm);
         }
 
-        public PartialViewResult Create()
-        {
-
-            var item = new ItemViewModel();
-            //add url
-            item.ActionUrl = Request.Url.Scheme + @"://" + Request.Url.Authority + "/api/item";
+        //GET: Show Blank Form Item
+        public async Task<PartialViewResult> Create()
+        {   
+            var item = ItemViewModel.CreateEmpty((await _categoryData.GetCategories()));
+            item.ActionUrl = Request.Url.Scheme + @"://" + Request.Url.Authority + "/api/item"; //add url
+            
             return PartialView(item);
         }
 
         public async Task<PartialViewResult> Edit(int id)
-        {
+        {   
             var item = await _itemData.GetItem(id);
-            var mvItems = Mapper.Map<ItemViewModel>(item);
+            var mvItems = ItemViewModel.CreateWithItem(item, (await _categoryData.GetCategories()));
             mvItems.ActionUrl = Request.Url.Scheme + @"://" + Request.Url.Authority + "/api/item";
 
             return PartialView("Create", mvItems);
@@ -62,8 +75,7 @@ namespace NabcoPortal.Controllers
             var mvItem = Mapper.Map<ItemViewModel>(item);
             return PartialView(mvItem);
         }
-
-
-
+        #region Private Method
+        #endregion
     }
 }

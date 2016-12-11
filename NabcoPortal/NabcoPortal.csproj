@@ -215,6 +215,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\Pagination.cs" />
     <Compile Include="Models\VideoMeta.cs" />
     <Compile Include="Persistent\UserDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="ViewModel\Identity\SendCodeViewModel.cs" />
     <Compile Include="ViewModel\Identity\UserRoleViewModel.cs" />
     <Compile Include="ViewModel\Identity\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModel\ItemTableViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +253,12 @@
     </Content>
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\parts\grid.css">
+      <DependentUpon>grid.less</DependentUpon>
+    </Content>
+    <Content Include="Content\parts\grid.min.css">
+      <DependentUpon>grid.css</DependentUpon>
+    </Content>
     <Content Include="Content\parts\mixin.css">
       <DependentUpon>mixin.less</DependentUpon>
     </Content>
@@ -333,6 +341,10 @@
     <Content Include="Content\parts\panel.less" />
     <Content Include="Content\parts\panel.css.map">
       <DependentUpon>panel.css</DependentUpon>
+    </Content>
+    <Content Include="Content\parts\grid.less" />
+    <Content Include="Content\parts\grid.css.map">
+      <DependentUpon>grid.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\TestEnvironment.pubxml" />
     <Content Include="Scripts\angular.min.js.map" />

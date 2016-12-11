@@ -29,10 +29,10 @@ namespace NabcoPortal.ItemMaster.Test
         [TestMethod]
         public async Task Can_Add_Item()
         {
-            var oldData = await _itemData.GetItems();
-            var item = Item.Create("Kings Bed", "M200", "F1001", " mattress and pillow", "PC");
+            var oldData = await _itemData.GetItems(1,20);
+            var item = Item.Create("Kings Bed", "M200", "F1001", 1," mattress and pillow", "PC");
             await _itemData.AddItem(item);
-            var newData = await _itemData.GetItems();
+            var newData = await _itemData.GetItems(1,20);
             Assert.AreEqual((oldData.Count()+1),newData.Count());
         }
 
@@ -53,16 +53,22 @@ namespace NabcoPortal.ItemMaster.Test
         [TestMethod]
         public async Task Can_Get_All_Items()
         {
-            var data = await _itemData.GetItems();
+            var data = await _itemData.GetItems(1,20);
             Assert.AreNotEqual(0,data.Count());
         }
 
         [TestMethod]
         public async Task Can_Get_Item_By_Id()
         {
-            var newItem = Item.Create("Queens Bed", "M100", "F1001", " mattress and pillow", "PC");
+            var newItem = Item.Create("Queens Bed", "M100", "F1001",1, " mattress and pillow", "PC");
             var item = await _itemData.GetItem(2); //get the first item
             Assert.AreEqual(newItem.ModelNo,item.ModelNo);
+        }
+
+        [TestMethod]
+        public async Task Can_Search_Item()
+        {
+            
         }
 
 

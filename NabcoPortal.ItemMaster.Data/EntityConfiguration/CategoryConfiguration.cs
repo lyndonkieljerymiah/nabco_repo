@@ -17,7 +17,7 @@ namespace NabcoPortal.ItemMaster.Data.EntityConfiguration
                 .IsRequired();
 
             this.HasMany(c => c.Items)
-                .WithRequired();
+                .WithRequired(i => i.Category);
         }
     }
 }

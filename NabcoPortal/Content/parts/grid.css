@@ -1,0 +1,48 @@
+﻿.nb-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  line-height: 1.42;
+  vertical-align: top;
+  font-size: 1em;
+}
+.nb-table th,
+.nb-table td {
+  padding: 5px;
+}
+.nb-table th {
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  line-height: 1.22;
+  vertical-align: top;
+  color: rgba(0, 0, 0, 0.5);
+}
+.nb-table td {
+  font-size: .8em;
+}
+.nb-table tbody tr:hover {
+  background-color: #e6e6e6;
+}
+.nb-table .center {
+  text-align: center;
+}
+.nb-table tfoot {
+  border: 1px solid #dddddd;
+}
+.nb-table .footer-nav .record-nav {
+  background-color: #e6e6e6;
+  text-decoration: none;
+  color: gray;
+  font-size: bold;
+  border: none;
+  padding: 5px 10px;
+}
+.nb-table .btn-nav {
+  border: none;
+  line-height: 1.2em;
+  font-size: 1.3em;
+  padding: 10px;
+  background: none;
+}
+/*# sourceMappingURL=grid.css.map */

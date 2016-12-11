@@ -9,35 +9,31 @@ app.controller('ItemDialogController', function ($uibModal, $scope)
     var $ctrl = this;
     var parentElem = angular.element($('.modal-demo'));
 
+    function openModal(path)
+    {
+        
+        var opt =
+            {
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: path,
+                appendTo: parentElem,
+                controller: 'ModalInstanceCtrl',
+                controllerAs: '$ctrl',
+                resolve: null
+            };
+        $uibModal.open(opt);
+    }
+
     //open edit/create item
     $ctrl.open = function (path) {
-
         $scope.item = {};
-        $uibModal.open(
-        {
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: path,
-            appendTo: parentElem,
-            controller: 'ModalInstanceCtrl',
-            controllerAs: '$ctrl',
-            resolve: null
-
-        });
+        openModal(path);
     }
 
     //open detail form
-    $ctrl.openDetail = function (path)
-    {
-        $uibModal.open(
-       {
-           ariaLabelledBy: 'modal-title',
-           ariaDescribedBy: 'modal-body',
-           templateUrl: path,
-           appendTo: parentElem,
-           controller: 'ModalInstanceCtrl',
-           controllerAs: '$ctrl'
-       });
+    $ctrl.openDetail = function (path) {
+        openModal(path);
     }
 });
 
@@ -55,15 +51,14 @@ app.controller('ModalInstanceCtrl',
         $ctrl.ok = function ()
         {
             var uriUpdate = $("#frmItemEntry").data("action");
-            console.log(uriUpdate);
+            
             //console.log($scope.item);
             //execute post here to save item
-            ajaxService.postForm($scope.item,
+            ajaxService.postForm($("#frmItemEntry").serialize(),
                uriUpdate,
                function (data)
                {
                     $uibModalInstance.dismiss({ value: 'cancel' });
-                    window.location.replace("http://localhost:50305/item");
                 });
         }
 

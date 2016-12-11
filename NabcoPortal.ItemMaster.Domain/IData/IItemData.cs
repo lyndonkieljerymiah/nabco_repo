@@ -11,8 +11,11 @@ namespace NabcoPortal.ItemMaster.Domain.IData
     {
         Task AddItem(Item item);
         Task UpdateItem(Item item);
-        Task<IEnumerable<Item>> GetItems();
-        Task<Item> GetItem(int Id);
+        Task<IEnumerable<Item>> GetItems(int page,int size);
+        Task<IEnumerable<Item>> GetItems(int page, int size,string search);
+        int GetTotalRecordCount();
+        Task<Item> GetItem(int id);
+        
 
     }
 }

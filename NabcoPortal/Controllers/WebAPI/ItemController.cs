@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
-using AutoMapper;
-using Microsoft.Owin;
+using System.Web.Mvc;
 using NabcoPortal.ItemMaster.Data.Data;
 using NabcoPortal.ItemMaster.Domain.Model;
 using NabcoPortal.ViewModel;
@@ -24,7 +18,9 @@ namespace NabcoPortal.Controllers.WebAPI
         {
             _itemData = itemData;
         }
-        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+        [System.Web.Http.HttpPost]
         public async Task<IHttpActionResult> Update(ItemViewModel vm)
         {
 
@@ -36,13 +32,13 @@ namespace NabcoPortal.Controllers.WebAPI
             if (vm.Id != 0)
             {
                 //update
-                item = Item.ToUpdate(vm.Id, vm.Name, vm.ModelNo, vm.FinishingCode, vm.Composition, vm.UOM);
+                item = Item.ToUpdate(vm.Id, vm.Name, vm.ModelNo, vm.FinishingCode,vm.CategoryId, vm.Composition, vm.UOM);
                 await _itemData.UpdateItem(item);
             }
             else
             {
                 //insert new item
-                item = Item.Create(vm.Name, vm.ModelNo, vm.FinishingCode, vm.Composition, vm.UOM);
+                item = Item.Create(vm.Name, vm.ModelNo, vm.FinishingCode,vm.CategoryId, vm.Composition, vm.UOM);
                 await _itemData.AddItem(item);
             }
 

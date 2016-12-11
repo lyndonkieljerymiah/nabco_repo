@@ -8,6 +8,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
+/*Panel*/
 .nav-panel {
   background: #fbfbfb;
   padding: 0 !important;
@@ -52,6 +53,8 @@ body {
   margin: 15px 0;
   border-bottom: solid 1px #e5e5e5;
 }
+/*End Panel*/
+/* Tree View */
 .nav-treeview {
   user-select: none;
   -moz-user-select: none;
@@ -102,6 +105,56 @@ body {
 .nav-treeview input:checked:not(:disabled) ~ ul {
   display: block;
 }
+/* End Tree View */
+/* Grid */
+.nb-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  line-height: 1.42;
+  vertical-align: top;
+  font-size: 1em;
+}
+.nb-table th,
+.nb-table td {
+  padding: 5px;
+}
+.nb-table th {
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  line-height: 1.22;
+  vertical-align: top;
+  color: rgba(0, 0, 0, 0.5);
+}
+.nb-table td {
+  font-size: .8em;
+}
+.nb-table tbody tr:hover {
+  background-color: #e6e6e6;
+}
+.nb-table .center {
+  text-align: center;
+}
+.nb-table tfoot {
+  border: 1px solid #dddddd;
+}
+.nb-table .footer-nav .record-nav {
+  background-color: #e6e6e6;
+  text-decoration: none;
+  color: gray;
+  font-size: bold;
+  border: none;
+  padding: 5px 10px;
+}
+.nb-table .btn-nav {
+  border: none;
+  line-height: 1.2em;
+  font-size: 1.3em;
+  padding: 10px;
+  background: none;
+}
+/* End Grid*/
 .flex-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
